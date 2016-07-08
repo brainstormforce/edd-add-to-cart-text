@@ -11,6 +11,9 @@ Adds option to change text for "Add to cart" button and option to open the add t
 
 Add an "Add to cart text" option for your downloads to change the text on the "Add to cart" button for that particular download and option "open link in new tab" for add to cart button.
 
+= Want to contribute to the plugin? =
+You may now contribute to the plugin on Github: [Easy Digital Downloads - Add to cart Text on Github](https://github.com/brainstormforce/EDD-addtocart-text "Contribute on Github")
+
 == Installation ==
 
 1. Unzip the downloaded zip file
