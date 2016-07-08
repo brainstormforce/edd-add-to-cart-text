@@ -89,15 +89,14 @@ function edd_atc_new_tab_metabox_save( $new ) {
 add_filter( 'edd_metabox_save__edd_atc_new_tab', 'edd_atc_new_tab_metabox_save' );
 
 /**
- * Override the default product purchase button with an external anchor
+ * change button arguments to update "Add to cart text"
  *
  * Only affects products that have an Add to cart text specified
  *
  * @since  1.0.0
  *
- * @param  string    $purchase_form The concatenated markup for the purchase area
  * @param  array    $args           Args passed from {@see edd_get_purchase_link()}
- * @return string                   The potentially modified purchase area markup
+ * @return array                   Args modified if the button text is modified
  */
 function edd_atc_text( $args ) {
 
@@ -113,7 +112,17 @@ function edd_atc_text( $args ) {
 }
 add_filter( 'edd_purchase_link_args', 'edd_atc_text' );
 
-
+/**
+ * Override the default product purchase button with target="_blank"
+ *
+ * Only affects products that have an selected "Open link in new tab"
+ *
+ * @since  1.0.0
+ *
+ * @param  string    $purchase_form The concatenated markup for the purchase area
+ * @param  array    $args           Args passed from {@see edd_get_purchase_link()}
+ * @return string                   The potentially modified purchase area markup
+ */
 function edd_atc_new_tab_render( $purchase_form, $args ) {
 
 	$download_id = $args['download_id'];
