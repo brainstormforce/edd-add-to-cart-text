@@ -28,6 +28,20 @@ function edd_atc_text_render_field( $post_id ) {
 }
 add_action( 'edd_meta_box_fields', 'edd_atc_text_render_field', 90 );
 
+
+function edd_atc_new_tab_render_field( $post_id ) {
+	$edd_atc_new_tab = get_post_meta( $post_id, '_edd_atc_new_tab', true );
+?>
+	<p><strong><?php _e( 'Open link in new Tab:', 'edd-atc-text' ); ?></strong></p>
+	<label for="edd_atc_new_tab">
+		<input type="checkbox" name="_edd_atc_new_tab" id="edd_atc_new_tab" <?php checked(1, $edd_atc_new_tab) ?> value='1' Add to cart"/>
+		<?php _e( 'Open add to cart link in new tab for this download?', 'edd-atc-text' ); ?>
+<?php
+
+}
+
+add_action( 'edd_meta_box_fields', 'edd_atc_new_tab_render_field', 91 );
+
 /**
  * Add the _edd_atc_text field to the list of saved product fields
  *
@@ -40,6 +54,7 @@ function edd_atc_text_save( $fields ) {
 
 	// Add our field
 	$fields[] = '_edd_atc_text';
+	$fields[] = '_edd_atc_new_tab';
 
 	// Return the fields array
 	return $fields;
@@ -61,6 +76,17 @@ function edd_atc_text_metabox_save( $new ) {
 
 }
 add_filter( 'edd_metabox_save__edd_atc_text', 'edd_atc_text_metabox_save' );
+
+function edd_atc_new_tab_metabox_save( $new ) {
+
+	// sanitize the field before saving into wp_postmeta table
+	$new = $_POST[ '_edd_atc_new_tab' ];
+
+	// Return Title
+	return $new;
+}
+
+add_filter( 'edd_metabox_save__edd_atc_new_tab', 'edd_atc_new_tab_metabox_save' );
 
 /**
  * Override the default product purchase button with an external anchor
@@ -86,3 +112,20 @@ function edd_atc_text( $args ) {
 	return $args;
 }
 add_filter( 'edd_purchase_link_args', 'edd_atc_text' );
+
+
+function edd_atc_new_tab_render( $purchase_form, $args ) {
+
+	$download_id = $args['download_id'];
+
+	$edd_atc_new_tab = get_post_meta( $download_id, '_edd_atc_new_tab', true ) ? get_post_meta( $download_id, '_edd_atc_new_tab', true ) : '';
+
+	if ( isset( $edd_atc_new_tab ) && $edd_atc_new_tab !== '' ) {
+		$purchase_form = preg_replace('/(<a\b[^><]*)>/i', '$1 target="_blank">', $purchase_form);
+	}
+
+
+	return $purchase_form;
+}
+
+add_filter( 'edd_purchase_download_form', 'edd_atc_new_tab_render', 10, 2 );
