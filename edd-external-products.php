@@ -47,16 +47,16 @@ function edd_atc_text_save( $fields ) {
 add_filter( 'edd_metabox_fields_save', 'edd_atc_text_save' );
 
 /**
- * Sanitize metabox field to only accept URLs
+ * Sanitize metabox field
  *
  * @since 1.0.0
 */
 function edd_atc_text_metabox_save( $new ) {
 
-	// Convert to raw URL to save into wp_postmeta table
+	// sanitize the field before saving into wp_postmeta table
 	$new = esc_attr( $_POST[ '_edd_atc_text' ] );
 
-	// Return URL
+	// Return Title
 	return $new;
 
 }
@@ -65,7 +65,7 @@ add_filter( 'edd_metabox_save__edd_atc_text', 'edd_atc_text_metabox_save' );
 /**
  * Override the default product purchase button with an external anchor
  *
- * Only affects products that have an external URL stored
+ * Only affects products that have an Add to cart text specified
  *
  * @since  1.0.0
  *
