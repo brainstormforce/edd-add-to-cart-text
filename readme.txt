@@ -9,7 +9,7 @@ Adds option to change text for "Add to cart" button and option to open the add t
 
 == Description ==
 
-Add an "Add to cart text" option for your downloads to change the text on the "Add to cart" button for that particular download and option "open link in new tab" for add to cart button
+Add an "Add to cart text" option for your downloads to change the text on the "Add to cart" button for that particular download and option "open link in new tab" for add to cart button.
 
 == Installation ==
 
