@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Easy Digital Downloads - Add to cart Text
+Plugin Name: EDD - Add to cart Text
 Plugin URL: http://easydigitaldownloads.com
 Description: Add an "Add to cart text" option for your downloads to change the text on the "Add to cart" button for that particular download.
 Version: 1.0.0

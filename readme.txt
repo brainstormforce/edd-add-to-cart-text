@@ -1,4 +1,4 @@
-=== Easy Digital Downloads - Add to cart Text ===
+=== EDD - Add to cart Text ===
 Contributors: brainstormforce, Nikschavan
 Tags: Easy Digital Downloads, EDD, add to cart, new tab, ecommerce
 Requires at least: 3.0
