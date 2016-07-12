@@ -80,7 +80,7 @@ add_filter( 'edd_metabox_save__edd_atc_text', 'edd_atc_text_metabox_save' );
 function edd_atc_new_tab_metabox_save( $new ) {
 
 	// sanitize the field before saving into wp_postmeta table
-	$new = $_POST[ '_edd_atc_new_tab' ];
+	$new = esc_attr( $_POST[ '_edd_atc_new_tab' ] );
 
 	// Return Title
 	return $new;
