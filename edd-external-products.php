@@ -26,6 +26,7 @@ function edd_atc_text_render_field( $post_id ) {
 	</label>
 <?php
 }
+
 add_action( 'edd_meta_box_fields', 'edd_atc_text_render_field', 90 );
 
 
@@ -59,6 +60,7 @@ function edd_atc_text_save( $fields ) {
 	// Return the fields array
 	return $fields;
 }
+
 add_filter( 'edd_metabox_fields_save', 'edd_atc_text_save' );
 
 /**
@@ -75,6 +77,7 @@ function edd_atc_text_metabox_save( $new ) {
 	return $new;
 
 }
+
 add_filter( 'edd_metabox_save__edd_atc_text', 'edd_atc_text_metabox_save' );
 
 function edd_atc_new_tab_metabox_save( $new ) {
@@ -110,6 +113,7 @@ function edd_atc_text( $args ) {
 
 	return $args;
 }
+
 add_filter( 'edd_purchase_link_args', 'edd_atc_text' );
 
 /**
@@ -130,9 +134,8 @@ function edd_atc_new_tab_render( $purchase_form, $args ) {
 	$edd_atc_new_tab = get_post_meta( $download_id, '_edd_atc_new_tab', true ) ? get_post_meta( $download_id, '_edd_atc_new_tab', true ) : '';
 
 	if ( isset( $edd_atc_new_tab ) && $edd_atc_new_tab !== '' ) {
-		$purchase_form = preg_replace('/(<a\b[^><]*)>/i', '$1 target="_blank">', $purchase_form);
+		$purchase_form = preg_replace( '/(<a\b[^><]*)>/i', '$1 target="_blank">', $purchase_form );
 	}
-
 
 	return $purchase_form;
 }
