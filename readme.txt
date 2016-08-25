@@ -3,7 +3,7 @@ Contributors: brainstormforce, Nikschavan
 Tags: Easy Digital Downloads, EDD, add to cart, new tab, ecommerce
 Requires at least: 3.0
 Tested up to: 4.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 Adds option to change text for "Add to cart" button and option to open the add to cart link in new tab
 
@@ -25,6 +25,9 @@ You may now contribute to the plugin on Github: [Easy Digital Downloads - Add to
 None yet
 
 == Changelog ==
+
+= Version 1.0.1 =
+* Open link in new tab failing when cart with ajax is enabled.
 
 = Version 1.0.0 =
 * Initial release
