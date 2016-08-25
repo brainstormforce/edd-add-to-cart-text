@@ -140,4 +140,4 @@ function edd_atc_new_tab_render( $purchase_form, $args ) {
 	return $purchase_form;
 }
 
-add_filter( 'edd_purchase_download_form', 'edd_atc_new_tab_render', 10, 2 );
+add_filter( 'edd_purchase_download_form', 'edd_atc_new_tab_render', 90, 2 );
