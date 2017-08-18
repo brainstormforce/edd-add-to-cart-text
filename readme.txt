@@ -2,7 +2,7 @@
 Contributors: brainstormforce, Nikschavan
 Tags: Easy Digital Downloads, EDD, add to cart, new tab, ecommerce
 Requires at least: 3.0
-Tested up to: 4.6
+Tested up to: 4.8.1
 Stable tag: 1.0.1
 
 Adds option to change text for "Add to cart" button and option to open the add to cart link in new tab
